@@ -1,0 +1,36 @@
+name: Wetterdaten abrufen und hochladen
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Alle 5 Minuten
+  workflow_dispatch:
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository klonen
+        uses: actions/checkout@v3
+
+      - name: Wetterdaten abrufen
+        run: |
+          mkdir -p data
+          curl -s https://zerbst.x10.mx/api/wetter/live.json -o data/live.json
+          curl -s https://zerbst.x10.mx/api/wetter/live.txt -o data/live.txt
+
+      - name: Git Konfiguration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Änderungen committen
+        run: |
+          git add data/live.*
+          git commit -m "Wetterdaten automatisch aktualisiert $(date '+%Y-%m-%d %H:%M:%S')" || echo "Keine Änderungen"
+
+      - name: Änderungen pushen
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git pull --rebase
+          git push https://x-access-token:${GH_TOKEN}@github.com/wetterzerbst/wetterdaten.git HEAD:main
