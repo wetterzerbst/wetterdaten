@@ -32,5 +32,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git pull --rebase
-          git push https://x-access-token:${GH_TOKEN}@github.com/wetterzerbst/wetterdaten.git HEAD:main
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/wetterzerbst/wetterdaten.git
+          git push origin main
