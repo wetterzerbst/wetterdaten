@@ -26,5 +26,11 @@ jobs:
       - name: Änderungen committen
         run: |
           git add data/live.*
-          git commit -m "Wetterdaten automatisch aktualisiert $(date '+%Y-%m-%d %H:%M:%S')" || echo "Nichts zu committen"
-          git push
+          git commit -m "Wetterdaten automatisch aktualisiert $(date '+%Y-%m-%d %H:%M:%S')" || echo "Keine Änderungen"
+
+      - name: Änderungen pushen
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git pull --rebase
+          git push https://x-access-token:${GH_TOKEN}@github.com/wetterzerbst/wetterdaten.git HEAD:main
