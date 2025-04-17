@@ -1,33 +1,31 @@
 name: Wettertext generieren
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
   generate-wettertext:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Repository auschecken
+      - name: Repo klonen
         uses: actions/checkout@v3
 
-      - name: Node.js installieren
+      - name: Node.js einrichten
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Wettertext erzeugen
-        run: |
-          mkdir -p data
-          echo "Lade aktuelle Wetterdaten..."
-          curl -s "https://zerbst.x10.mx/api/wetter/data/live.json?t=$(date +%s)" -o data/live.json
-          node scripts/generateChatGPTText.js
+      - name: Abhängigkeiten installieren
+        run: npm install node-fetch@2
 
-      - name: Git commit & push
+      - name: Wettertext generieren
+        run: node scripts/generateChatGPTText.js
+
+      - name: Änderungen committen und pushen
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add chatgpt_live.html
-          git commit -m "Automatisch generiert: Wettertext für ChatGPT ($(date '+%Y-%m-%d %H:%M'))" || echo "Keine Änderungen"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/chatgpt_live.html
+          git commit -m "Update: Neuer Live-Wettertext (automatisch generiert)" || echo "Nichts zu committen"
           git push
