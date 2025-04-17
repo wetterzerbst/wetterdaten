@@ -125,7 +125,7 @@
 <script>
   async function loadData() {
     try {
-      const res = await fetch('data/live.json');
+      const res = await fetch('data/live.json?t=' + new Date().getTime());
       const json = await res.json();
       const m = json.metric || {};
 
@@ -155,6 +155,18 @@
       if ('time' in json) {
         const ts = new Date(json.time);
         document.getElementById("timestamp").textContent = `Letzte Aktualisierung: ${ts.toLocaleString("de-DE")}`;
+
+        const now = new Date();
+        const diffMin = Math.round((now - ts) / 60000);
+        if (diffMin > 10) {
+          document.getElementById("timestamp").style.color = "red";
+          document.getElementById("timestamp").textContent += ` ⚠️ (veraltet: ${diffMin} Min)`;
+        } else if (diffMin > 5) {
+          document.getElementById("timestamp").style.color = "orange";
+          document.getElementById("timestamp").textContent += ` ⚠️ (${diffMin} Min alt)`;
+        } else {
+          document.getElementById("timestamp").style.color = "#777";
+        }
       } else {
         document.getElementById("timestamp").textContent = "Zeitstempel fehlt in den Daten.";
       }
