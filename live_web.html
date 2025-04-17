@@ -116,7 +116,7 @@
     <div class="label"><span class="icon">🌿</span>Blattnässe:</div>
     <div class="value" id="leafwet"></div>
 
-    <div class="label" id="pm-label"><span class="icon">🌫️</span>Feinstaub:</div>
+    <div class="label" id="pm-label"><span class="icon">🌫️</span>Feinstaub PM2.5:</div>
     <div class="value" id="pm"></div>
   </div>
   <div id="timestamp"></div>
@@ -127,7 +127,7 @@
     try {
       const res = await fetch('data/live.json');
       const json = await res.json();
-      const m = json.metric;
+      const m = json.metric || {};
 
       const warn = (v, limit) => v > limit ? 'warn' : '';
 
@@ -142,9 +142,8 @@
       document.getElementById("soilmoist").textContent = `${m.soil_moisture_percent} %`;
       document.getElementById("leafwet").textContent = `${m.leaf_wetness_percent} %`;
 
-      if ('pm25' in m) {
-        const pm10 = 'pm10' in m ? ` / ${m.pm10}` : '';
-        document.getElementById("pm").textContent = `${m.pm25}${pm10} µg/m³`;
+      if ('pm25' in m && typeof m.pm25 === 'number') {
+        document.getElementById("pm").textContent = `${m.pm25} µg/m³`;
       } else {
         document.getElementById("pm-label").style.display = "none";
         document.getElementById("pm").style.display = "none";
