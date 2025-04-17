@@ -1,111 +1,161 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Live-Wetter – Zerbst-Dorfstätte</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg: #f4f4f4;
+      --text: #222;
+      --card: #ffffff;
+      --accent: #004c8c;
+    }
+    [data-theme="dark"] {
+      --bg: #181a1b;
+      --text: #eee;
+      --card: #2c2f31;
+      --accent: #8ab4f8;
+    }
     body {
       font-family: sans-serif;
-      background: #f4f4f4;
-      color: #222;
-      padding: 2em;
-      max-width: 700px;
-      margin: auto;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 1em;
     }
     h1 {
       text-align: center;
-      color: #004c8c;
+      color: var(--accent);
     }
-    .data-block {
-      background: white;
-      border-radius: 10px;
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .card {
+      background: var(--card);
       padding: 1em;
+      border-radius: 1em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       margin-bottom: 1em;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .label {
       font-weight: bold;
-      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+    }
+    .label span.icon {
+      font-size: 1.2em;
+      margin-right: 0.4em;
     }
     .value {
       font-size: 1.3em;
-      margin-bottom: 0.5em;
+      margin: 0.2em 0 1em 1.5em;
     }
-    .icon {
-      font-size: 1.4em;
-      margin-right: 0.3em;
+    .warn {
+      color: red;
     }
     #timestamp {
       text-align: center;
-      margin-top: 2em;
       font-size: 0.9em;
       color: #777;
+    }
+    .dark-toggle {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .dark-toggle button {
+      padding: 0.5em 1em;
+      border: none;
+      background: var(--accent);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .value {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
 <body>
+<div class="container">
   <h1>🌤️ Live-Wetter – Zerbst-Dorfstätte</h1>
-
-  <div class="data-block">
+  <div class="dark-toggle">
+    <button onclick="toggleDark()">🌚 Darkmode wechseln</button>
+  </div>
+  <div class="card" id="data">
     <div class="label"><span class="icon">🌡️</span>Temperatur:</div>
-    <div class="value" id="temp">–</div>
+    <div class="value" id="temp"></div>
 
     <div class="label"><span class="icon">💨</span>Windgeschwindigkeit:</div>
-    <div class="value" id="wind">–</div>
+    <div class="value" id="wind"></div>
 
-    <div class="label"><span class="icon">🧭</span>Windrichtung:</div>
-    <div class="value" id="winddir">–</div>
+    <div class="label"><span class="icon">🤬</span>Windrichtung:</div>
+    <div class="value" id="winddir"></div>
 
     <div class="label"><span class="icon">🌫️</span>Luftdruck:</div>
-    <div class="value" id="press">–</div>
+    <div class="value" id="press"></div>
 
     <div class="label"><span class="icon">☀️</span>Solarstrahlung:</div>
-    <div class="value" id="solar">–</div>
+    <div class="value" id="solar"></div>
 
     <div class="label"><span class="icon">🌊</span>Wassertemperatur:</div>
-    <div class="value" id="water">–</div>
+    <div class="value" id="water"></div>
 
     <div class="label"><span class="icon">🌱</span>Bodentemperatur:</div>
-    <div class="value" id="soiltemp">–</div>
+    <div class="value" id="soiltemp"></div>
 
     <div class="label"><span class="icon">💧</span>Bodenfeuchte:</div>
-    <div class="value" id="soilmoist">–</div>
+    <div class="value" id="soilmoist"></div>
 
-    <div class="label"><span class="icon">🍃</span>Blattnässe:</div>
-    <div class="value" id="leafwet">–</div>
+    <div class="label"><span class="icon">🌿</span>Blattnässe:</div>
+    <div class="value" id="leafwet"></div>
+
+    <div class="label"><span class="icon">🌫️</span>Feinstaub PM2.5 / PM10:</div>
+    <div class="value" id="pm"></div>
   </div>
+  <div id="timestamp"></div>
+</div>
 
-  <div id="timestamp">Letzte Aktualisierung: wird geladen …</div>
+<script>
+  const pm_available = false; // Schalter aktivieren, wenn PM2.5/PM10 im JSON auftauchen
 
-  <script>
-    async function loadData() {
-      try {
-        const res = await fetch('data/live.json');
-        const json = await res.json();
-        const m = json.metric;
+  async function loadData() {
+    try {
+      const res = await fetch('data/live.json');
+      const json = await res.json();
+      const m = json.metric;
 
-        document.getElementById("temp").textContent = m.temperature_c + " °C";
-        document.getElementById("wind").textContent = m.wind_kmh + " km/h";
-        document.getElementById("winddir").textContent = m.wind_direction_deg + "°";
-        document.getElementById("press").textContent = m.pressure_hpa + " hPa";
-        document.getElementById("solar").textContent = m.solar_wm2 + " W/m²";
-        document.getElementById("water").textContent = m.water_temperature_c + " °C";
-        document.getElementById("soiltemp").textContent = m.soil_temperature_c + " °C";
-        document.getElementById("soilmoist").textContent = m.soil_moisture_percent + " %";
-        document.getElementById("leafwet").textContent = m.leaf_wetness_percent + " %";
+      const warn = (v, limit) => v > limit ? 'warn' : '';
 
-        const now = new Date();
-        document.getElementById("timestamp").textContent =
-          "Letzte Aktualisierung: " + now.toLocaleString("de-DE");
-      } catch (e) {
-        document.getElementById("timestamp").textContent = "Daten konnten nicht geladen werden.";
-        console.error(e);
-      }
+      document.getElementById("temp").innerHTML = `<span class="${warn(m.temperature_c,30)}">${m.temperature_c} °C</span>`;
+      document.getElementById("wind").textContent = `${m.wind_kmh} km/h`;
+      document.getElementById("winddir").textContent = `${m.wind_direction_deg}°`;
+      document.getElementById("press").textContent = `${m.pressure_hpa} hPa`;
+      document.getElementById("solar").textContent = `${m.solar_wm2} W/m²`;
+      document.getElementById("water").textContent = `${m.water_temperature_c} °C`;
+      document.getElementById("soiltemp").textContent = `${m.soil_temperature_c} °C`;
+      document.getElementById("soilmoist").textContent = `${m.soil_moisture_percent} %`;
+      document.getElementById("leafwet").textContent = `${m.leaf_wetness_percent} %`;
+      document.getElementById("pm").textContent = pm_available ? `${m.pm25} / ${m.pm10} µg/m³` : '–';
+
+      const now = new Date();
+      document.getElementById("timestamp").textContent = `Letzte Aktualisierung: ${now.toLocaleString("de-DE")}`;
+    } catch (e) {
+      document.getElementById("timestamp").textContent = "Fehler beim Laden der Daten.";
+      console.error(e);
     }
+  }
 
-    loadData();
-    setInterval(loadData, 60000);
-  </script>
+  function toggleDark() {
+    const current = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  }
+
+  loadData();
+  setInterval(loadData, 60000);
+</script>
 </body>
 </html>
