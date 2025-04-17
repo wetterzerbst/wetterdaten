@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Live-Wetteranzeige – Zerbst</title>
+  <title>Live-Wetter – Zerbst-Dorfstätte</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -64,7 +64,7 @@
     <div class="value" id="solar">–</div>
   </div>
 
-  <div id="timestamp">Letzte Aktualisierung: –</div>
+  <div id="timestamp">Letzte Aktualisierung: wird geladen …</div>
 
   <script>
     async function loadData() {
@@ -72,15 +72,17 @@
         const res = await fetch('data/live.json');
         const json = await res.json();
 
-        document.getElementById("temp").textContent = json.temp + " °C";
-        document.getElementById("wind").textContent = json.windspeed + " km/h";
-        document.getElementById("winddir").textContent = json.winddir + "°";
-        document.getElementById("press").textContent = json.barometer + " hPa";
-        document.getElementById("solar").textContent = json.solarradiation + " W/m²";
+        const m = json.metric;
 
-        const t = new Date(json.dateutc);
-        const lokal = new Date(t.getTime() + 2 * 60 * 60 * 1000);
-        document.getElementById("timestamp").textContent = "Letzte Aktualisierung: " + lokal.toLocaleString("de-DE");
+        document.getElementById("temp").textContent = m.temperature_c + " °C";
+        document.getElementById("wind").textContent = m.wind_kmh + " km/h";
+        document.getElementById("winddir").textContent = m.wind_direction_deg + "°";
+        document.getElementById("press").textContent = m.pressure_hpa + " hPa";
+        document.getElementById("solar").textContent = m.solar_wm2 + " W/m²";
+
+        const now = new Date();
+        document.getElementById("timestamp").textContent =
+          "Letzte Aktualisierung: " + now.toLocaleString("de-DE");
 
       } catch (e) {
         document.getElementById("timestamp").textContent = "Daten konnten nicht geladen werden.";
