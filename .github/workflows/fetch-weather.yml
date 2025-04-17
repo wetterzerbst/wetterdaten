@@ -5,9 +5,13 @@ on:
     - cron: '*/5 * * * *'  # Alle 5 Minuten
   workflow_dispatch:
 
+permissions:
+  contents: write  # Ermöglicht Push-Vorgänge mit GITHUB_TOKEN
+
 jobs:
   fetch-and-commit:
     runs-on: ubuntu-latest
+
     steps:
       - name: Repository klonen
         uses: actions/checkout@v3
@@ -15,8 +19,8 @@ jobs:
       - name: Wetterdaten abrufen
         run: |
           mkdir -p data
-          curl -s https://zerbst.x10.mx/api/wetter/live.json -o data/live.json
-          curl -s https://zerbst.x10.mx/api/wetter/live.txt -o data/live.txt
+          curl -s https://zerbst.x10.mx/api/wetter/data/live.json -o data/live.json
+          curl -s https://zerbst.x10.mx/api/wetter/data/live.txt -o data/live.txt
 
       - name: Git Konfiguration
         run: |
@@ -29,8 +33,6 @@ jobs:
           git commit -m "Wetterdaten automatisch aktualisiert $(date '+%Y-%m-%d %H:%M:%S')" || echo "Keine Änderungen"
 
       - name: Änderungen pushen
+        run: git push origin main
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/wetterzerbst/wetterdaten.git
-          git push origin main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
