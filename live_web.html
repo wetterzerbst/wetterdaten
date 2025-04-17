@@ -145,8 +145,12 @@
         document.getElementById("pm").style.display = "none";
       }
 
-      const now = new Date();
-      document.getElementById("timestamp").textContent = `Letzte Aktualisierung: ${now.toLocaleString("de-DE")}`;
+      if ('dateutc' in json) {
+        const ts = new Date(json.dateutc + ' UTC');
+        document.getElementById("timestamp").textContent = `Letzte Aktualisierung: ${ts.toLocaleString("de-DE")}`;
+      } else {
+        document.getElementById("timestamp").textContent = "Zeitstempel fehlt in den Daten.";
+      }
     } catch (e) {
       document.getElementById("timestamp").textContent = "Fehler beim Laden der Daten.";
       console.error(e);
