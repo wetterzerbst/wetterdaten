@@ -21,6 +21,7 @@ jobs:
 
       - name: Wettertext generieren
         run: node scripts/generateChatGPTText.js
+     
       - name: Änderungen committen und pushen
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
