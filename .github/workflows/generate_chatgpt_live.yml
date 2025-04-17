@@ -23,7 +23,9 @@ jobs:
         run: npm install node-fetch@2
 
       - name: Wettertext generieren
-        run: node scripts/generateChatGPTText.js
+        run: |
+          mkdir -p data
+          curl -s "https://zerbst.x10.mx/api/wetter/chatgpt_live.php" > data/chatgpt_live.html
 
       - name: Änderungen committen und pushen
         run: |
