@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live-Wetteranzeige – Zerbst</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      padding: 2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #004c8c;
+    }
+    .data-block {
+      background: white;
+      border-radius: 10px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .label {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    .value {
+      font-size: 1.3em;
+      margin-bottom: 0.5em;
+    }
+    .icon {
+      font-size: 1.4em;
+      margin-right: 0.3em;
+    }
+    #timestamp {
+      text-align: center;
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌤️ Live-Wetter – Zerbst-Dorfstätte</h1>
+
+  <div class="data-block">
+    <div class="label"><span class="icon">🌡️</span>Temperatur:</div>
+    <div class="value" id="temp">–</div>
+
+    <div class="label"><span class="icon">💨</span>Windgeschwindigkeit:</div>
+    <div class="value" id="wind">–</div>
+
+    <div class="label"><span class="icon">🧭</span>Windrichtung:</div>
+    <div class="value" id="winddir">–</div>
+
+    <div class="label"><span class="icon">🌫️</span>Luftdruck:</div>
+    <div class="value" id="press">–</div>
+
+    <div class="label"><span class="icon">☀️</span>Solarstrahlung:</div>
+    <div class="value" id="solar">–</div>
+  </div>
+
+  <div id="timestamp">Letzte Aktualisierung: –</div>
+
+  <script>
+    async function loadData() {
+      try {
+        const res = await fetch('data/live.json');
+        const json = await res.json();
+
+        document.getElementById("temp").textContent = json.temp + " °C";
+        document.getElementById("wind").textContent = json.windspeed + " km/h";
+        document.getElementById("winddir").textContent = json.winddir + "°";
+        document.getElementById("press").textContent = json.barometer + " hPa";
+        document.getElementById("solar").textContent = json.solarradiation + " W/m²";
+
+        const t = new Date(json.dateutc);
+        const lokal = new Date(t.getTime() + 2 * 60 * 60 * 1000);
+        document.getElementById("timestamp").textContent = "Letzte Aktualisierung: " + lokal.toLocaleString("de-DE");
+
+      } catch (e) {
+        document.getElementById("timestamp").textContent = "Daten konnten nicht geladen werden.";
+        console.error(e);
+      }
+    }
+
+    loadData();
+    setInterval(loadData, 60000);
+  </script>
+</body>
+</html>
