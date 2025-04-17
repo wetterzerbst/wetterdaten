@@ -113,15 +113,13 @@
     <div class="label"><span class="icon">🌿</span>Blattnässe:</div>
     <div class="value" id="leafwet"></div>
 
-    <div class="label"><span class="icon">🌫️</span>Feinstaub PM2.5 / PM10:</div>
+    <div class="label" id="pm-label"><span class="icon">🌫️</span>Feinstaub PM2.5 / PM10:</div>
     <div class="value" id="pm"></div>
   </div>
   <div id="timestamp"></div>
 </div>
 
 <script>
-  const pm_available = false; // Schalter aktivieren, wenn PM2.5/PM10 im JSON auftauchen
-
   async function loadData() {
     try {
       const res = await fetch('data/live.json');
@@ -139,7 +137,13 @@
       document.getElementById("soiltemp").textContent = `${m.soil_temperature_c} °C`;
       document.getElementById("soilmoist").textContent = `${m.soil_moisture_percent} %`;
       document.getElementById("leafwet").textContent = `${m.leaf_wetness_percent} %`;
-      document.getElementById("pm").textContent = pm_available ? `${m.pm25} / ${m.pm10} µg/m³` : '–';
+
+      if ('pm25' in m && 'pm10' in m) {
+        document.getElementById("pm").textContent = `${m.pm25} / ${m.pm10} µg/m³`;
+      } else {
+        document.getElementById("pm-label").style.display = "none";
+        document.getElementById("pm").style.display = "none";
+      }
 
       const now = new Date();
       document.getElementById("timestamp").textContent = `Letzte Aktualisierung: ${now.toLocaleString("de-DE")}`;
