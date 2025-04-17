@@ -89,6 +89,9 @@
     <div class="label"><span class="icon">🌡️</span>Temperatur:</div>
     <div class="value" id="temp"></div>
 
+    <div class="label"><span class="icon">💧</span>Luftfeuchte:</div>
+    <div class="value" id="humidity"></div>
+
     <div class="label"><span class="icon">💨</span>Windgeschwindigkeit:</div>
     <div class="value" id="wind"></div>
 
@@ -141,6 +144,7 @@
       const warn = (v, limit) => v > limit ? 'warn' : '';
       document.getElementById("temp").innerHTML = `<span class="${warn(m.temperature_c,30)}">${m.temperature_c ?? '--'} °C</span>`;
 
+      safe("humidity_percent", " %", "humidity");
       safe("wind_kmh", " km/h", "wind");
       safe("wind_gust_kmh", " km/h", "windgust");
       safe("wind_direction_deg", "°", "winddir");
