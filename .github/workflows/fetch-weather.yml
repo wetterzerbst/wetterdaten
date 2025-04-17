@@ -21,6 +21,7 @@ jobs:
           mkdir -p data
           curl -s https://zerbst.x10.mx/api/wetter/data/live.json -o data/live.json
           curl -s https://zerbst.x10.mx/api/wetter/data/live.txt -o data/live.txt
+          curl -s https://zerbst.x10.mx/api/wetter/data/live.csv -o data/live.csv
 
       - name: Git Konfiguration
         run: |
