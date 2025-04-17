@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Wetterdaten (JSON)</title>
+  <style>
+    body { font-family: monospace; background: #f8f8f8; padding: 20px; }
+    pre { background: #fff; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>🌦️ Live-Wetterdaten (Zerbst)</h1>
+  <pre id="json-output">Lade Daten...</pre>
+
+  <script>
+    fetch('data/live.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('json-output').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('json-output').textContent = "Fehler beim Laden: " + error;
+      });
+  </script>
+</body>
+</html>
