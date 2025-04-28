@@ -1,5 +1,5 @@
 {
-    "time": "2025-04-28T07:34:02+02:00",
+    "time": "2025-04-28T07:57:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,40 +15,40 @@
         ]
     },
     "metric": {
-        "temperature_c": 6.6,
-        "humidity_percent": 72,
-        "dewpoint_c": 1.9,
+        "temperature_c": 8.5,
+        "humidity_percent": 68,
+        "dewpoint_c": 2.9,
         "pressure_hpa": 1027,
-        "wind_kmh": 0,
-        "wind_gust_kmh": 0,
-        "wind_direction_deg": 343,
-        "solar_wm2": 102.49,
-        "uv_index": 0,
+        "wind_kmh": 1.4,
+        "wind_gust_kmh": 1.8,
+        "wind_direction_deg": 230,
+        "solar_wm2": 149.3,
+        "uv_index": 1,
         "visibility": "klar",
         "fog": false,
         "soil_moisture_percent": 21,
         "soil_temperature_c": 12.2,
-        "water_temperature_c": 8.9,
+        "water_temperature_c": 9,
         "leaf_wetness_percent": 0,
-        "pm25": 5
+        "pm25": 7
     },
     "imperial": {
-        "temperature_f": 43.88,
-        "humidity_percent": 72,
-        "dewpoint_f": 35.4,
+        "temperature_f": 47.3,
+        "humidity_percent": 68,
+        "dewpoint_f": 37.2,
         "pressure_inhg": 30.327,
-        "wind_mph": 0,
-        "wind_gust_mph": 0,
-        "wind_direction_deg": 343,
-        "solar_wft2": 9.52,
-        "uv_index": 0,
+        "wind_mph": 0.89,
+        "wind_gust_mph": 1.12,
+        "wind_direction_deg": 230,
+        "solar_wft2": 13.87,
+        "uv_index": 1,
         "visibility": "clear",
         "fog": false,
         "soil_moisture_percent": 21,
         "soil_temperature_f": 53.96,
-        "water_temperature_f": 48.02,
+        "water_temperature_f": 48.2,
         "leaf_wetness_percent": 0,
-        "pm25": 5
+        "pm25": 7
     },
     "forecast": [
         {
