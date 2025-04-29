@@ -1,5 +1,5 @@
 {
-    "time": "2025-04-30T01:43:01+02:00",
+    "time": "2025-04-30T01:56:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,9 +15,9 @@
         ]
     },
     "metric": {
-        "temperature_c": 6.9,
+        "temperature_c": 6.7,
         "humidity_percent": 94,
-        "dewpoint_c": 6,
+        "dewpoint_c": 5.8,
         "pressure_hpa": 1024.9,
         "wind_kmh": 0,
         "wind_gust_kmh": 0,
@@ -28,14 +28,14 @@
         "fog": false,
         "soil_moisture_percent": 21,
         "soil_temperature_c": 15.6,
-        "water_temperature_c": 14.2,
+        "water_temperature_c": 14.1,
         "leaf_wetness_percent": 99,
         "pm25": 4
     },
     "imperial": {
-        "temperature_f": 44.42,
+        "temperature_f": 44.06,
         "humidity_percent": 94,
-        "dewpoint_f": 42.8,
+        "dewpoint_f": 42.4,
         "pressure_inhg": 30.265,
         "wind_mph": 0,
         "wind_gust_mph": 0,
@@ -46,7 +46,7 @@
         "fog": false,
         "soil_moisture_percent": 21,
         "soil_temperature_f": 60.08,
-        "water_temperature_f": 57.56,
+        "water_temperature_f": 57.38,
         "leaf_wetness_percent": 99,
         "pm25": 4
     },
