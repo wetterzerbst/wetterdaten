@@ -1,5 +1,5 @@
 {
-    "time": "2025-05-15T22:46:03+02:00",
+    "time": "2025-05-15T22:59:03+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,8 +15,8 @@
         ]
     },
     "metric": {
-        "temperature_c": 9.1,
-        "humidity_percent": 89,
+        "temperature_c": 8.8,
+        "humidity_percent": 91,
         "dewpoint_c": 7.4,
         "pressure_hpa": 1019.5,
         "wind_kmh": 0,
@@ -33,8 +33,8 @@
         "pm25": 2
     },
     "imperial": {
-        "temperature_f": 48.38,
-        "humidity_percent": 89,
+        "temperature_f": 47.84,
+        "humidity_percent": 91,
         "dewpoint_f": 45.3,
         "pressure_inhg": 30.106,
         "wind_mph": 0,
