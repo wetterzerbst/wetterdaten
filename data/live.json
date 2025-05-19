@@ -1,5 +1,5 @@
 {
-    "time": "2025-05-20T01:41:02+02:00",
+    "time": "2025-05-20T01:55:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,10 +15,10 @@
         ]
     },
     "metric": {
-        "temperature_c": 10.7,
+        "temperature_c": 10.4,
         "humidity_percent": 94,
-        "dewpoint_c": 9.8,
-        "pressure_hpa": 1019,
+        "dewpoint_c": 9.5,
+        "pressure_hpa": 1018.9,
         "wind_kmh": 0,
         "wind_gust_kmh": 0,
         "wind_direction_deg": 330,
@@ -27,16 +27,16 @@
         "visibility": "klar",
         "fog": false,
         "soil_moisture_percent": 17,
-        "soil_temperature_c": 15.6,
-        "water_temperature_c": 14,
+        "soil_temperature_c": 15.5,
+        "water_temperature_c": 13.9,
         "leaf_wetness_percent": 99,
-        "pm25": 5
+        "pm25": 4
     },
     "imperial": {
-        "temperature_f": 51.26,
+        "temperature_f": 50.72,
         "humidity_percent": 94,
-        "dewpoint_f": 49.6,
-        "pressure_inhg": 30.091,
+        "dewpoint_f": 49.1,
+        "pressure_inhg": 30.088,
         "wind_mph": 0,
         "wind_gust_mph": 0,
         "wind_direction_deg": 330,
@@ -45,10 +45,10 @@
         "visibility": "clear",
         "fog": false,
         "soil_moisture_percent": 17,
-        "soil_temperature_f": 60.08,
-        "water_temperature_f": 57.2,
+        "soil_temperature_f": 59.9,
+        "water_temperature_f": 57.02,
         "leaf_wetness_percent": 99,
-        "pm25": 5
+        "pm25": 4
     },
     "forecast": [
         {
