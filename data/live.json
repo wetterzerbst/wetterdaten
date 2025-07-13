@@ -1,5 +1,5 @@
 {
-    "time": "2025-07-13T05:50:03+02:00",
+    "time": "2025-07-13T06:33:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,14 +15,14 @@
         ]
     },
     "metric": {
-        "temperature_c": 15.9,
-        "humidity_percent": 98,
-        "dewpoint_c": 15.6,
-        "pressure_hpa": 1008.6,
+        "temperature_c": 16,
+        "humidity_percent": 99,
+        "dewpoint_c": 15.8,
+        "pressure_hpa": 1008.8,
         "wind_kmh": 0,
         "wind_gust_kmh": 1.8,
-        "wind_direction_deg": 229,
-        "solar_wm2": 9.44,
+        "wind_direction_deg": 232,
+        "solar_wm2": 25.45,
         "uv_index": 0,
         "visibility": "unter 200 m",
         "fog": true,
@@ -30,17 +30,17 @@
         "soil_temperature_c": 18.7,
         "water_temperature_c": 16.5,
         "leaf_wetness_percent": 99,
-        "pm25": 5
+        "pm25": 6
     },
     "imperial": {
-        "temperature_f": 60.62,
-        "humidity_percent": 98,
-        "dewpoint_f": 60.1,
-        "pressure_inhg": 29.784,
+        "temperature_f": 60.8,
+        "humidity_percent": 99,
+        "dewpoint_f": 60.4,
+        "pressure_inhg": 29.79,
         "wind_mph": 0,
         "wind_gust_mph": 1.12,
-        "wind_direction_deg": 229,
-        "solar_wft2": 0.88,
+        "wind_direction_deg": 232,
+        "solar_wft2": 2.36,
         "uv_index": 0,
         "visibility": "less than 656 ft",
         "fog": true,
@@ -48,7 +48,7 @@
         "soil_temperature_f": 65.66,
         "water_temperature_f": 61.7,
         "leaf_wetness_percent": 99,
-        "pm25": 5
+        "pm25": 6
     },
     "forecast": [
         {
@@ -432,8 +432,8 @@
             "dewpoint_f": 60.3,
             "wind_kmh": 7.3,
             "wind_mph": 4.5,
-            "precipitation_percent": 4,
-            "regenwahrscheinlichkeit_prozent": 4
+            "precipitation_percent": 6,
+            "regenwahrscheinlichkeit_prozent": 6
         },
         {
             "time": "2025-07-13T08:00",
@@ -444,8 +444,8 @@
             "dewpoint_f": 59.7,
             "wind_kmh": 10.6,
             "wind_mph": 6.6,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 12,
+            "regenwahrscheinlichkeit_prozent": 12
         },
         {
             "time": "2025-07-13T09:00",
@@ -816,8 +816,8 @@
             "dewpoint_f": 59,
             "wind_kmh": 15.5,
             "wind_mph": 9.6,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 2,
+            "regenwahrscheinlichkeit_prozent": 2
         },
         {
             "time": "2025-07-14T16:00",
