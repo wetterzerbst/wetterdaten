@@ -1,5 +1,5 @@
 {
-    "time": "2025-07-15T09:01:02+02:00",
+    "time": "2025-07-15T09:31:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,40 +15,40 @@
         ]
     },
     "metric": {
-        "temperature_c": 21.7,
+        "temperature_c": 21.6,
         "humidity_percent": 71,
-        "dewpoint_c": 16.2,
-        "pressure_hpa": 1015,
-        "wind_kmh": 1.4,
+        "dewpoint_c": 16.1,
+        "pressure_hpa": 1014.8,
+        "wind_kmh": 2.9,
         "wind_gust_kmh": 5.4,
-        "wind_direction_deg": 176,
-        "solar_wm2": 196.39,
-        "uv_index": 1,
+        "wind_direction_deg": 200,
+        "solar_wm2": 244.33,
+        "uv_index": 2,
         "visibility": "klar",
         "fog": false,
         "soil_moisture_percent": 33,
-        "soil_temperature_c": 21.2,
+        "soil_temperature_c": 21.5,
         "water_temperature_c": 20.5,
         "leaf_wetness_percent": 0,
-        "pm25": 8
+        "pm25": 4
     },
     "imperial": {
-        "temperature_f": 71.06,
+        "temperature_f": 70.88,
         "humidity_percent": 71,
-        "dewpoint_f": 61.2,
-        "pressure_inhg": 29.973,
-        "wind_mph": 0.89,
+        "dewpoint_f": 61,
+        "pressure_inhg": 29.967,
+        "wind_mph": 1.79,
         "wind_gust_mph": 3.36,
-        "wind_direction_deg": 176,
-        "solar_wft2": 18.25,
-        "uv_index": 1,
+        "wind_direction_deg": 200,
+        "solar_wft2": 22.7,
+        "uv_index": 2,
         "visibility": "clear",
         "fog": false,
         "soil_moisture_percent": 33,
-        "soil_temperature_f": 70.16,
+        "soil_temperature_f": 70.7,
         "water_temperature_f": 68.9,
         "leaf_wetness_percent": 0,
-        "pm25": 8
+        "pm25": 4
     },
     "forecast": [
         {
@@ -480,8 +480,8 @@
             "dewpoint_f": 62.2,
             "wind_kmh": 9.7,
             "wind_mph": 6,
-            "precipitation_percent": 12,
-            "regenwahrscheinlichkeit_prozent": 12
+            "precipitation_percent": 6,
+            "regenwahrscheinlichkeit_prozent": 6
         },
         {
             "time": "2025-07-15T12:00",
@@ -492,8 +492,8 @@
             "dewpoint_f": 63.9,
             "wind_kmh": 9.4,
             "wind_mph": 5.8,
-            "precipitation_percent": 54,
-            "regenwahrscheinlichkeit_prozent": 54
+            "precipitation_percent": 48,
+            "regenwahrscheinlichkeit_prozent": 48
         },
         {
             "time": "2025-07-15T13:00",
@@ -516,8 +516,8 @@
             "dewpoint_f": 58.8,
             "wind_kmh": 10.1,
             "wind_mph": 6.3,
-            "precipitation_percent": 48,
-            "regenwahrscheinlichkeit_prozent": 48
+            "precipitation_percent": 26,
+            "regenwahrscheinlichkeit_prozent": 26
         },
         {
             "time": "2025-07-15T15:00",
@@ -528,8 +528,8 @@
             "dewpoint_f": 59,
             "wind_kmh": 17.5,
             "wind_mph": 10.9,
-            "precipitation_percent": 4,
-            "regenwahrscheinlichkeit_prozent": 4
+            "precipitation_percent": 14,
+            "regenwahrscheinlichkeit_prozent": 14
         },
         {
             "time": "2025-07-15T16:00",
@@ -576,8 +576,8 @@
             "dewpoint_f": 55.2,
             "wind_kmh": 23.1,
             "wind_mph": 14.4,
-            "precipitation_percent": 6,
-            "regenwahrscheinlichkeit_prozent": 6
+            "precipitation_percent": 0,
+            "regenwahrscheinlichkeit_prozent": 0
         },
         {
             "time": "2025-07-15T20:00",
@@ -756,8 +756,8 @@
             "dewpoint_f": 54.5,
             "wind_kmh": 11.4,
             "wind_mph": 7.1,
-            "precipitation_percent": 2,
-            "regenwahrscheinlichkeit_prozent": 2
+            "precipitation_percent": 0,
+            "regenwahrscheinlichkeit_prozent": 0
         },
         {
             "time": "2025-07-16T11:00",
@@ -768,8 +768,8 @@
             "dewpoint_f": 54.3,
             "wind_kmh": 12.3,
             "wind_mph": 7.6,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 4,
+            "regenwahrscheinlichkeit_prozent": 4
         },
         {
             "time": "2025-07-16T12:00",
@@ -780,8 +780,8 @@
             "dewpoint_f": 53.4,
             "wind_kmh": 16.4,
             "wind_mph": 10.2,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 4,
+            "regenwahrscheinlichkeit_prozent": 4
         },
         {
             "time": "2025-07-16T13:00",
@@ -816,8 +816,8 @@
             "dewpoint_f": 54.3,
             "wind_kmh": 14.9,
             "wind_mph": 9.3,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 56,
+            "regenwahrscheinlichkeit_prozent": 56
         },
         {
             "time": "2025-07-16T16:00",
@@ -840,8 +840,8 @@
             "dewpoint_f": 52.2,
             "wind_kmh": 12,
             "wind_mph": 7.5,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 6,
+            "regenwahrscheinlichkeit_prozent": 6
         },
         {
             "time": "2025-07-16T18:00",
@@ -852,8 +852,8 @@
             "dewpoint_f": 53.4,
             "wind_kmh": 23.8,
             "wind_mph": 14.8,
-            "precipitation_percent": 24,
-            "regenwahrscheinlichkeit_prozent": 24
+            "precipitation_percent": 0,
+            "regenwahrscheinlichkeit_prozent": 0
         },
         {
             "time": "2025-07-16T19:00",
@@ -864,8 +864,8 @@
             "dewpoint_f": 57.4,
             "wind_kmh": 8.5,
             "wind_mph": 5.3,
-            "precipitation_percent": 20,
-            "regenwahrscheinlichkeit_prozent": 20
+            "precipitation_percent": 0,
+            "regenwahrscheinlichkeit_prozent": 0
         },
         {
             "time": "2025-07-16T20:00",
