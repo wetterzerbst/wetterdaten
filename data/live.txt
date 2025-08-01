@@ -1,5 +1,5 @@
 {
-    "time": "2025-08-01T09:35:04+02:00",
+    "time": "2025-08-01T09:52:02+02:00",
     "location": {
         "name": "Zerbst-Dorfstätte",
         "lat": 51.965264,
@@ -15,37 +15,37 @@
         ]
     },
     "metric": {
-        "temperature_c": 15.3,
+        "temperature_c": 15.5,
         "humidity_percent": 96,
-        "dewpoint_c": 14.7,
+        "dewpoint_c": 14.9,
         "pressure_hpa": 1009,
-        "wind_kmh": 1.8,
+        "wind_kmh": 2.2,
         "wind_gust_kmh": 3.6,
-        "wind_direction_deg": 213,
-        "solar_wm2": 93.15,
-        "uv_index": 0,
+        "wind_direction_deg": 231,
+        "solar_wm2": 160.37,
+        "uv_index": 1,
         "visibility": "klar",
         "fog": false,
-        "soil_moisture_percent": 34,
-        "soil_temperature_c": 18.3,
+        "soil_moisture_percent": 33,
+        "soil_temperature_c": 18.2,
         "water_temperature_c": 16.1,
         "leaf_wetness_percent": 99,
         "pm25": 4
     },
     "imperial": {
-        "temperature_f": 59.54,
+        "temperature_f": 59.9,
         "humidity_percent": 96,
-        "dewpoint_f": 58.5,
+        "dewpoint_f": 58.8,
         "pressure_inhg": 29.796,
-        "wind_mph": 1.12,
+        "wind_mph": 1.34,
         "wind_gust_mph": 2.24,
-        "wind_direction_deg": 213,
-        "solar_wft2": 8.65,
-        "uv_index": 0,
+        "wind_direction_deg": 231,
+        "solar_wft2": 14.9,
+        "uv_index": 1,
         "visibility": "clear",
         "fog": false,
-        "soil_moisture_percent": 34,
-        "soil_temperature_f": 64.94,
+        "soil_moisture_percent": 33,
+        "soil_temperature_f": 64.76,
         "water_temperature_f": 60.98,
         "leaf_wetness_percent": 99,
         "pm25": 4
@@ -456,8 +456,8 @@
             "dewpoint_f": 59.2,
             "wind_kmh": 7.1,
             "wind_mph": 4.4,
-            "precipitation_percent": 8,
-            "regenwahrscheinlichkeit_prozent": 8
+            "precipitation_percent": 36,
+            "regenwahrscheinlichkeit_prozent": 36
         },
         {
             "time": "2025-08-01T10:00",
@@ -516,8 +516,8 @@
             "dewpoint_f": 55.8,
             "wind_kmh": 20.8,
             "wind_mph": 12.9,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 2,
+            "regenwahrscheinlichkeit_prozent": 2
         },
         {
             "time": "2025-08-01T15:00",
@@ -576,8 +576,8 @@
             "dewpoint_f": 56.1,
             "wind_kmh": 6.1,
             "wind_mph": 3.8,
-            "precipitation_percent": 0,
-            "regenwahrscheinlichkeit_prozent": 0
+            "precipitation_percent": 46,
+            "regenwahrscheinlichkeit_prozent": 46
         },
         {
             "time": "2025-08-01T20:00",
@@ -588,8 +588,8 @@
             "dewpoint_f": 58.1,
             "wind_kmh": 7.1,
             "wind_mph": 4.4,
-            "precipitation_percent": 2,
-            "regenwahrscheinlichkeit_prozent": 2
+            "precipitation_percent": 0,
+            "regenwahrscheinlichkeit_prozent": 0
         },
         {
             "time": "2025-08-01T21:00",
@@ -600,8 +600,8 @@
             "dewpoint_f": 57.2,
             "wind_kmh": 7.7,
             "wind_mph": 4.8,
-            "precipitation_percent": 2,
-            "regenwahrscheinlichkeit_prozent": 2
+            "precipitation_percent": 18,
+            "regenwahrscheinlichkeit_prozent": 18
         },
         {
             "time": "2025-08-01T22:00",
